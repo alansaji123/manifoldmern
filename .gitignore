@@ -1,0 +1,9 @@
+# client files
+/client/node_modules
+/client/yarn.lock
+/client/.env
+
+# server files
+/server/node_modules
+/server/yarn.lock
+/server/.env
