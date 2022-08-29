@@ -1,0 +1,14 @@
+@use "./variables";
+$body-bg: #ffffff;
+$body-color: #000000;
+$theme-colors: (
+   "primary":variables.$primary,
+   "secondary":variables.$secondary,
+   "info": variables.$info,
+   "danger": variables.$danger,
+   "dark": variables.$dark,
+   "success": variables.$success,
+   "color-bg": variables.$background,
+);
+
+@import "~bootstrap/scss/bootstrap";

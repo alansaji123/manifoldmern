@@ -1,0 +1,19 @@
+@use  "../../styles/variables";
+
+.sc__btn {
+   border: none;
+   outline: none !important;
+}
+
+.sc__btn_link {
+   border: none !important;
+   background-color: transparent;
+}
+
+.sc__btn_primary {
+   border: 1px solid variables.$primary;
+   padding-left: 1rem;
+   padding-right: 1rem;
+   padding-top: .7rem;
+   padding-bottom: .7rem;
+}

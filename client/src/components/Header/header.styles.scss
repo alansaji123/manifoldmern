@@ -1,0 +1,31 @@
+@use "../../styles/variables";
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
+.header__wrapper {
+   background-color: variables.$white;
+   min-height: 4rem;
+}
+
+.header__icon {
+   font-size: 21px;
+}
+
+.header__logo {
+   font-size: 28px;
+   font-weight: 700;
+   font-family: 'Dancing Script', cursive;
+}
+
+.header__badge {
+   height: 15px;
+   width: 15px;
+   border-radius: 50%;
+   background-color: variables.$secondary;
+   color: variables.$white;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   font-size: 10px;
+   position: absolute;
+   right: -9px;
+   top: -2px;
+}
