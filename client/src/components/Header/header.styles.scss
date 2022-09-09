@@ -1,5 +1,6 @@
 @use "../../styles/variables";
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
+
 .header__wrapper {
    background-color: variables.$white;
    min-height: 4rem;
@@ -28,4 +29,13 @@
    position: absolute;
    right: -9px;
    top: -2px;
+}
+
+.header__dropdown_wrapper,
+.header__cart_dropdown {
+   .dropdown-toggle {
+      &::after {
+         display: none !important;
+      }
+   }
 }

@@ -9,6 +9,9 @@ function Button({ children, className, variant = "primary" }) {
   if (variant === "link") {
     variantClassName = "sc__btn_link";
   }
+  if (variant === "secondary") {
+    variantClassName = "sc__btn_secondary";
+  }
 
   return (
     <button className={`${className} sc__btn ${variantClassName}`}>

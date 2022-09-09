@@ -2,7 +2,10 @@ import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import "../styles/home.styles.scss";
-import Img1 from "../assets/images/shoe1.jpg";
+import Img1 from "../assets/images/shoe1.png";
+import Img2 from "../assets/images/shoe2.png";
+import Img3 from "../assets/images/shoe3.png";
+import Img4 from "../assets/images/shoe4.png";
 import { BsArrowRight } from "react-icons/bs";
 import Button from "../components/Button/button.component";
 import Card from "../components/Card/card.component";
@@ -51,20 +54,56 @@ function Home() {
           </div>
           <div className="home__carousel_item">
             <div className="home__carousel_container d-flex align-items-center justify-content-between mx-auto gap-3">
-              <div className="home__carousel_text">hello</div>
-              <img className="home__carousel_img" src={Img1} alt="shoe" />
+              <div className="home__carousel_text">
+                <h1 className="text-primary">New Arrivals</h1>
+                <div className="text-dark text-sm">
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo,
+                  tempora. Eius, quas corrupti nulla quam quos sunt voluptate
+                  vero provident quo, minus ullam ipsum cupiditate non
+                  aspernatur porro deleniti animi.
+                </div>
+                <Button className="text-primary text-sm mt-3" variant="link">
+                  <span>View Collection</span>
+                  <BsArrowRight className="ms-2" />
+                </Button>
+              </div>
+              <img className="home__carousel_img" src={Img2} alt="shoe" />
             </div>
           </div>
           <div className="home__carousel_item">
             <div className="home__carousel_container d-flex align-items-center justify-content-between mx-auto gap-3">
-              <div className="home__carousel_text">hello</div>
-              <img className="home__carousel_img" src={Img1} alt="shoe" />
+              <div className="home__carousel_text">
+                <h1 className="text-primary">New Arrivals</h1>
+                <div className="text-dark text-sm">
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo,
+                  tempora. Eius, quas corrupti nulla quam quos sunt voluptate
+                  vero provident quo, minus ullam ipsum cupiditate non
+                  aspernatur porro deleniti animi.
+                </div>
+                <Button className="text-primary text-sm mt-3" variant="link">
+                  <span>View Collection</span>
+                  <BsArrowRight className="ms-2" />
+                </Button>
+              </div>
+              <img className="home__carousel_img" src={Img3} alt="shoe" />
             </div>
           </div>
           <div className="home__carousel_item">
             <div className="home__carousel_container d-flex align-items-center justify-content-between mx-auto gap-3">
-              <div className="home__carousel_text">hello</div>
-              <img className="home__carousel_img" src={Img1} alt="shoe" />
+              <div className="home__carousel_text">
+                <h1 className="text-primary">New Arrivals</h1>
+                <div className="text-dark text-sm">
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo,
+                  tempora. Eius, quas corrupti nulla quam quos sunt voluptate
+                  vero provident quo, minus ullam ipsum cupiditate non
+                  aspernatur porro deleniti animi.
+                </div>
+                <Button className="text-primary text-sm mt-3" variant="link">
+                  <span>View Collection</span>
+                  <BsArrowRight className="ms-2" />
+                </Button>
+              </div>
+              <img className="home__carousel_img" src={Img4} alt="shoe" />
             </div>
           </div>
         </Carousel>
@@ -75,9 +114,78 @@ function Home() {
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat
           temporibus aut necessitatibus mollitia voluptates perferendis.
         </div>
-        <div>Filter Section</div>
         <div className="mt-5 container mx-auto">
-          <Card />
+          <div className="row">
+            <div className="col-12">
+              <div>Filter Section</div>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-12 col-sm-6 col-md-3">
+              <Card
+                image={Img1}
+                title={`Jordan Premium Shoe`}
+                price={1200}
+                rating={4}
+              />
+            </div>
+            <div className="col-12 col-sm-6 col-md-3">
+              <Card
+                image={Img2}
+                title={`Jordan Premium Shoe`}
+                price={1200}
+                rating={4}
+              />
+            </div>
+            <div className="col-12 col-sm-6 col-md-3">
+              <Card
+                image={Img3}
+                title={`Jordan Premium Shoe`}
+                price={1200}
+                rating={4}
+              />
+            </div>
+            <div className="col-12 col-sm-6 col-md-3">
+              <Card
+                image={Img4}
+                title={`Jordan Premium Shoe`}
+                price={1200}
+                rating={4}
+              />
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-12 text-center mt-5">
+              <Button variant="primary" className="px-5">
+                View All
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="mt-5 mb-5 bg-color-bg py-4">
+        <div className="container">
+          <div className="d-flex align-items-center flex-wrap">
+            <div className="w-50">
+              <div className="text-4xl text-primary font-semibold">
+                2016 Nike
+              </div>
+              <div className="text-4xl text-primary font-semibold">
+                The Best Classical
+              </div>
+              <div className="mt-1">
+                <span className="text-sm">
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                  Nostrum voluptatibus atque laborum repellat mollitia fugiat,
+                  velit eligendi hic temporibus, quidem possimus quod tempora
+                  nesciunt dicta omnis voluptate assumenda! Iure, quaerat.
+                </span>
+              </div>
+            </div>
+            <div className="w-50">
+              <img className="img-fluid" src={Img2} alt="" />
+            </div>
+          </div>
         </div>
       </div>
     </div>
