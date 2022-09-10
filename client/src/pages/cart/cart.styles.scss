@@ -1,0 +1,31 @@
+.cart__product_img {
+   height: auto;
+   width: 100px;
+}
+
+.order__place_success_wrapper {
+   min-height: 300px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+   gap: 1rem;
+}
+
+.success__icon {
+   animation-name: growShrink;
+   animation-duration: 1.5s;
+   animation-iteration-count: infinite;
+   // transition: all ease-in-out;
+   animation-direction: alternate-reverse;
+}
+
+@keyframes growShrink {
+   from {
+      transform: scale(1);
+   }
+
+   to {
+      transform: scale(1.25);
+   }
+}

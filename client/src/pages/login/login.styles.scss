@@ -1,0 +1,6 @@
+@use "../../styles/variables";
+
+.login__form_wrapper {
+   background-color: lightblue;
+   color: variables.$dark;
+}

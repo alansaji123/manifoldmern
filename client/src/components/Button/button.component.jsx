@@ -1,7 +1,13 @@
 import React from "react";
 import "./button.styles.scss";
 
-function Button({ children, className, variant = "primary" }) {
+function Button({
+  children,
+  className,
+  variant = "primary",
+  onClick,
+  ...rest
+}) {
   let variantClassName = "";
   if (variant === "primary") {
     variantClassName = "sc__btn_primary";
@@ -14,7 +20,11 @@ function Button({ children, className, variant = "primary" }) {
   }
 
   return (
-    <button className={`${className} sc__btn ${variantClassName}`}>
+    <button
+      {...rest}
+      onClick={onClick}
+      className={`${className} sc__btn ${variantClassName}`}
+    >
       {children}
     </button>
   );

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import "../styles/home.styles.scss";
@@ -9,8 +9,18 @@ import Img4 from "../assets/images/shoe4.png";
 import { BsArrowRight } from "react-icons/bs";
 import Button from "../components/Button/button.component";
 import Card from "../components/Card/card.component";
+import { ROUTES } from "../routes/index";
+import { useNavigate, Link } from "react-router-dom";
+import { CartContext } from "../context/CartContext";
+import { useState } from "react";
 
 function Home() {
+  const navigate = useNavigate();
+  const { cartItems, addItemToCart } = useContext(CartContext);
+  const [existingCartItemsArray, setExistingCartItemsArray] = useState([]);
+
+  console.log("cart items : ", cartItems);
+
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -30,6 +40,24 @@ function Home() {
       items: 1,
     },
   };
+
+  const getExistingCartArray = (items) => {
+    let tmpArr = [];
+    if (items && items.length > 0) {
+      items.forEach((item, index) => {
+        tmpArr.push(item.id);
+      });
+    }
+  };
+
+  useEffect(() => {
+    if (cartItems) {
+      getExistingCartArray(cartItems);
+    } else {
+      setExistingCartItemsArray([]);
+    }
+  }, [cartItems]);
+
   return (
     <div className="home__wrapper row">
       <div className="container-fluid container-xxl bg-color-bg">
@@ -121,44 +149,81 @@ function Home() {
             </div>
           </div>
           <div className="row">
-            <div className="col-12 col-sm-6 col-md-3">
+            <div className="col-12 col-sm-6 col-md-3 my-2">
               <Card
                 image={Img1}
-                title={`Jordan Premium Shoe`}
+                title={`Jordan Premium Shoe 11`}
                 price={1200}
                 rating={4}
+                onAction={() => {
+                  addItemToCart({
+                    name: "hello",
+                    quantity: 1,
+                    id: "001",
+                    price: 100,
+                  });
+                }}
               />
             </div>
-            <div className="col-12 col-sm-6 col-md-3">
+            <div className="col-12 col-sm-6 col-md-3 my-2">
               <Card
                 image={Img2}
                 title={`Jordan Premium Shoe`}
                 price={1200}
                 rating={4}
+                onAction={() => {
+                  console.log("adding item");
+                  addItemToCart({
+                    name: "hello",
+                    quantity: 1,
+                    price: 100,
+                    id: "002",
+                  });
+                }}
               />
             </div>
-            <div className="col-12 col-sm-6 col-md-3">
+            <div className="col-12 col-sm-6 col-md-3 my-2">
               <Card
                 image={Img3}
                 title={`Jordan Premium Shoe`}
                 price={1200}
                 rating={4}
+                onAction={() => {
+                  console.log("adding item");
+                  addItemToCart({
+                    name: "hello",
+                    quantity: 1,
+                    price: 200,
+                    id: "003",
+                  });
+                }}
               />
             </div>
-            <div className="col-12 col-sm-6 col-md-3">
+            <div className="col-12 col-sm-6 col-md-3 my-2">
               <Card
                 image={Img4}
                 title={`Jordan Premium Shoe`}
                 price={1200}
                 rating={4}
+                onAction={() => {
+                  console.log("adding item");
+                  addItemToCart({
+                    name: "hello",
+                    quantity: 1,
+                    price: 200,
+                    id: "004",
+                  });
+                }}
               />
             </div>
           </div>
           <div className="row">
             <div className="col-12 text-center mt-5">
-              <Button variant="primary" className="px-5">
-                View All
-              </Button>
+              <Link to={ROUTES.PRODUCTS}>
+                <Button variant="primary" className="px-5">
+                  View All
+                </Button>
+              </Link>
             </div>
           </div>
         </div>

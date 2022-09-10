@@ -1,0 +1,10 @@
+@use "../../styles/variables";
+
+.signup__wrapper {
+   background-color: lightblue;
+   color: variables.$dark;
+}
+
+.signup__container {
+   // min-height: 90vh;
+}

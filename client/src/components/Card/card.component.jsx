@@ -4,7 +4,7 @@ import { BiRupee } from "react-icons/bi";
 import Button from "../Button/button.component";
 import "./card.style.scss";
 
-function Card({ image, title, price, rating }) {
+function Card({ image, title, price, rating, onAction, buttonProps }) {
   return (
     <div className="card__wrapper shadow shadow-sm py-3 border">
       <div className="card__img_wrapper">
@@ -23,7 +23,9 @@ function Card({ image, title, price, rating }) {
           })}
       </div>
       <div className="d-flex align-items-center justify-content-center mt-3">
-        <Button variant="secondary">Add to cart</Button>
+        <Button onClick={onAction} variant="secondary">
+          Add to cart
+        </Button>
       </div>
     </div>
   );

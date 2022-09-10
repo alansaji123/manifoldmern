@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import "./header.styles.scss";
 import {
   AiOutlineMenu,
@@ -10,10 +10,14 @@ import { BsBagCheck } from "react-icons/bs";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { Dropdown } from "react-bootstrap";
 import { FaUserCircle } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { ROUTES } from "../../routes";
+import { CartContext } from "../../context/CartContext";
 
 function Header() {
-  const [show, setShow] = useState(false);
+  const { cartItems } = useContext(CartContext);
 
+  const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -29,45 +33,39 @@ function Header() {
               </Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
-              <div className="text-base my-3 d-flex gap-3 align-items-center">
-                <AiOutlineHome className="text-xl" />
-                Home
-              </div>
-              <div className="text-base my-3 d-flex gap-3 align-items-center">
-                <BsBagCheck className="text-xl" />
-                All Products
-              </div>
-              <div className="text-base my-3 d-flex gap-3 align-items-center">
-                <IoLogOutOutline className="text-xl" />
-                Logout
-              </div>
+              <Link to={ROUTES.HOME} onClick={() => setShow(false)}>
+                <div className="text-base my-3 d-flex gap-3 align-items-center text-secondary header__link">
+                  <AiOutlineHome className="text-xl" />
+                  Home
+                </div>
+              </Link>
+              <Link to={ROUTES.PRODUCTS} onClick={() => setShow(false)}>
+                <div className="text-base my-3 d-flex gap-3 align-items-center text-secondary">
+                  <BsBagCheck className="text-xl" />
+                  All Products
+                </div>
+              </Link>
+              <Link to="/" onClick={() => setShow(false)}>
+                <div className="text-base my-3 d-flex gap-3 align-items-center text-secondary">
+                  <IoLogOutOutline className="text-xl" />
+                  Logout
+                </div>
+              </Link>
             </Offcanvas.Body>
           </Offcanvas>
         </div>
         <div className="header__logo">Shoe Cart</div>
         <div className="d-flex align-items-center gap-4">
           <div className="position-relative header__cart_dropdown">
-            <div className="header__badge">1</div>
-            <Dropdown>
-              <Dropdown.Toggle as="div" id="dropdown-cart">
-                <AiOutlineShoppingCart className="header__icon" />
-              </Dropdown.Toggle>
-              <Dropdown.Menu style={{ width: "450px" }}>
-                <div className="d-flex align-items-center px-3">
-                  <span className="text-primary font-normal text-xs w-50">
-                    Product Name
-                  </span>
-                  <span className="text-primary font-bold w-50">
-                    <input type="text" />
-                  </span>
-                </div>
-              </Dropdown.Menu>
-            </Dropdown>
+            <Link to={ROUTES.CART}>
+              <div className="header__badge">{cartItems?.length}</div>
+              <AiOutlineShoppingCart className="header__icon text-secondary" />
+            </Link>
           </div>
           <div className="header__dropdown_wrapper">
             <Dropdown>
               <Dropdown.Toggle as="div" id="dropdown-profile">
-                <FaUserCircle />
+                <FaUserCircle className="text-secondary text-2xl" />
               </Dropdown.Toggle>
               <Dropdown.Menu>
                 <Dropdown.Item href="#/action-3">Logout</Dropdown.Item>
