@@ -5,4 +5,10 @@ const signUpValidator = [
   body("email").normalizeEmail().isEmail().withMessage("Invalid email."),
   body("password").trim().isLength(1).withMessage("Password is required"),
 ];
-module.exports = { signUpValidator };
+
+const loginValidator = [
+  body("email").normalizeEmail().isEmail().withMessage("Invalid email."),
+  body("password").trim().isLength(1).withMessage("Password is required"),
+];
+
+module.exports = { signUpValidator, loginValidator };

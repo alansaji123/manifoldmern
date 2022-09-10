@@ -1,9 +1,14 @@
 const express = require("express");
 const router = express.Router();
-const { signUp } = require("../../controllers/auth/auth.controller");
+const { signUp, login } = require("../../controllers/auth/auth.controller");
 const { validator } = require("../../middlewares/validator.middleware");
-const { signUpValidator } = require("../../validators/signup.validator");
+const { AUTH_ROUTES } = require("../../constants/route.constants");
+const {
+  signUpValidator,
+  loginValidator,
+} = require("../../validators/auth.validator");
 
-router.post("/signup", signUpValidator, validator, signUp);
+router.post(AUTH_ROUTES.SIGNUP, signUpValidator, validator, signUp);
+router.post(AUTH_ROUTES.LOGIN, loginValidator, validator, login);
 
 module.exports = router;
