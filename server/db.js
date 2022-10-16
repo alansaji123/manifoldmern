@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 
 const { UserModel } = require("./models/UserModel");
 const { BrandModel } = require("./models/BrandsModel");
+const { ProductsModel } = require("./models/ProductsModel");
 
 mongoose.connect(process.env.DB_CONNECTION_URL, function (err) {
   if (err) {
@@ -16,4 +17,5 @@ mongoose.Promise = global.Promise;
 module.exports = {
   UserModel,
   BrandModel,
+  ProductsModel,
 };

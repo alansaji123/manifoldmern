@@ -24,6 +24,7 @@ const {
 } = require("../../validators/admin/brand.validator");
 const {
   AddProductValidator,
+  UpdateProductValidator,
 } = require("../../validators/admin/product.validator");
 const { validator } = require("../../middlewares/validator.middleware");
 const upload = require("../../middlewares/fileupload.middleware");
@@ -65,6 +66,15 @@ router.post(
   AddProductValidator,
   validator,
   addProduct
+);
+
+router.put(
+  ADMIN_ROUTES.UPDATE_PRODUCT,
+  adminProtected,
+  upload.single("image"),
+  UpdateProductValidator,
+  validator,
+  updateProduct
 );
 // admin products routes end
 

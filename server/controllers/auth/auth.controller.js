@@ -61,11 +61,12 @@ const login = async (req, res, next) => {
     if (!compareResult) {
       return next(new ErrorResponse("Invalid email or password", 401));
     }
-    const { name, _id, id } = existingUser;
+    const { name, _id, id, userType } = existingUser;
     const token = signUserToken({
       name,
       _id,
       id,
+      userType,
     });
     return res.status(200).json({
       success: true,
@@ -80,7 +81,34 @@ const login = async (req, res, next) => {
   }
 };
 
+/*
+Alan
+function to create admin user
+*/
+
+const createAdminUser = async (req, res, next) => {
+  try {
+    const password = "123456";
+    const hashedPassword = await bcrypt.hash(password, 2);
+    const user = new UserModel({
+      name: "Admin",
+      email: "admin@gmail.com",
+      password: hashedPassword,
+      userType: "admin",
+    });
+    const createdUser = await user.save();
+    return res.status(201).json({
+      success: true,
+      data: "Admin user created",
+    });
+  } catch (err) {
+    console.log("error while creating admin user", err);
+    next(new ErrorResponse(err.message, 500));
+  }
+};
+
 module.exports = {
   signUp,
   login,
+  createAdminUser,
 };

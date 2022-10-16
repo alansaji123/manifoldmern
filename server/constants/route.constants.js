@@ -5,6 +5,7 @@ const ADMIN_ROUTE_PREFIX = "/admin";
 const AUTH_ROUTES = {
   SIGNUP: "/signup",
   LOGIN: "/login",
+  CREATE_ADMIN: "/create-admin",
 };
 
 const CUSTOMER_ROUTES = {

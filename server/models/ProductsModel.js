@@ -6,7 +6,12 @@ const ProductsSchema = new Schema({
   description: { type: String, required: true },
   image: { type: String, required: true },
   price: { type: Number, default: 0 },
-  rating: { type: Number, default: 0 },
+  ratings: [
+    {
+      user: { type: Schema.ObjectId },
+      rating: { type: String },
+    },
+  ],
   comments: [
     {
       user: { type: Schema.ObjectId },
@@ -16,7 +21,7 @@ const ProductsSchema = new Schema({
 });
 
 ProductsSchema.set("toJSON", { virtuals: true });
-const ProductsModel = mongoose.model("Brand", ProductsModel);
+const ProductsModel = mongoose.model("Product", ProductsSchema);
 
 module.exports = {
   ProductsSchema,
